@@ -3,36 +3,52 @@ package ba.unsa.etf.rpr;
 public class Korpa {
 
     private Artikl[] artikli;
-    private int broj_artikala_u_korpi;
+    private int Broj_Artikala_U_Korpi;
 
     Korpa(){
         artikli = new Artikl[50];
-        broj_artikala_u_korpi = 0;
+        Broj_Artikala_U_Korpi = 0;
     }
-    public Artikl izbaciArtkilSaKodom(String kod){
+    public Artikl izbaciArtiklSaKodom(String kod){
 
-        Artikl a = null;
-        for(int i=0; i<broj_artikala_u_korpi; i++){
-            if(artikli[i].dajKod().equals(kod)){
-                a = artikli[i];
+        Artikl artikl = null;
+        for(int i=0; i<Broj_Artikala_U_Korpi; i++){
+            if(kod.equals(artikli[i].getKod())){
+                artikl = artikli[i];
                 artikli[i] = null;
-                broj_artikala_u_korpi--;
+                for(int j=i; j<Broj_Artikala_U_Korpi; j++) artikli[j] = artikli[j+1];
+                Broj_Artikala_U_Korpi--;
                 break;
             }
         }
 
-        return a;
+        return artikl;
     }
 
-    public final int dajUkupnuCijenuArtikala(){
+    public int dajUkupnuCijenuArtikala(){
         int cijena = 0;
-        for(int i=0; i<broj_artikala_u_korpi; i++){
-            cijena += artikli[i].dajCijenu();
+        for(int i=0; i<Broj_Artikala_U_Korpi; i++){
+            cijena = cijena + artikli[i].getCijena();
         }
 
         return cijena;
     }
 
+    public Artikl[] getArtikli(){
+        return artikli;
+    }
+
+    public boolean dodajArtikl(Artikl artikl){
+
+        if(Broj_Artikala_U_Korpi==50) {
+            return false;
+        }
+        else {
+            artikli[Broj_Artikala_U_Korpi] = artikl;
+            Broj_Artikala_U_Korpi++;
+            return true;
+        }
+    }
 
 
 

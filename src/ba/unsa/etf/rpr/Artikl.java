@@ -14,13 +14,13 @@ public class Artikl {
         this.kod = kod;
     }
 
-    public final String dajNaziv(){
+    public String getNaziv(){
         return naziv;
     }
-    public final int dajCijenu(){
+    public int getCijena(){
         return cijena;
     }
-    public final String dajKod(){
+    public String getKod(){
         return kod;
     }
 }
