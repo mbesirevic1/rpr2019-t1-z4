@@ -2,8 +2,8 @@ package ba.unsa.etf.rpr;
 
 public class Korpa {
 
-    private Artikl[] artikli;
-    private int Broj_Artikala_U_Korpi;
+    protected Artikl[] artikli;
+    protected int Broj_Artikala_U_Korpi;
 
     Korpa(){
         artikli = new Artikl[50];

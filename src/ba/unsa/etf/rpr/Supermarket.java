@@ -2,8 +2,8 @@ package ba.unsa.etf.rpr;
 
 public class Supermarket {
 
-    private Artikl[] artikli;
-    private int Broj_Artikala_U_Supermarketu;
+    protected Artikl[] artikli;
+    protected int Broj_Artikala_U_Supermarketu;
 
     Supermarket(){
 
